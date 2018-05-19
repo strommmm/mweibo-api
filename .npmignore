@@ -1,0 +1,14 @@
+src/
+dump.rdb
+wechat-info.json
+logs/
+node_modules
+yarn.lock
+npm-debug.log
+.idea/
+.vscode/
+.alm/
+coverage/
+**/.DS_Store
+package-lock.json
+tsconfig.json

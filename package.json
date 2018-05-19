@@ -1,0 +1,29 @@
+{
+  "name": "mweibo-api",
+  "version": "0.0.2",
+  "description": "m.weibo.cn apis",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -rf lib && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "m.weibo.cn"
+  ],
+  "author": "storm.hao",
+  "license": "ISC",
+  "dependencies": {
+    "get-pixels": "^3.3.0",
+    "images": "^3.0.1",
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.1.2",
+    "querystring": "^0.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.109",
+    "@types/node": "^10.1.2",
+    "@types/node-fetch": "^1.6.9",
+    "typescript": "^2.8.3"
+  }
+}
