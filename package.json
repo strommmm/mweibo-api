@@ -1,6 +1,6 @@
 {
   "name": "mweibo-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "m.weibo.cn apis",
   "main": "lib/index.js",
   "scripts": {
