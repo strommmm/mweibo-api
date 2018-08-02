@@ -14,7 +14,7 @@ const login = async (username: string, password: string, proxy?: any) => {
         const chromeOptions = new chrome.Options().windowSize({
             width: 1000,
             height: 600
-        }).headless();
+        });// .headless();
         driver = new webdriver.Builder()
             .forBrowser('chrome')
             .setChromeOptions(chromeOptions);
@@ -23,7 +23,7 @@ const login = async (username: string, password: string, proxy?: any) => {
             if (proxy.username) {
                 proxyString = `${proxy.username}:${proxy.password}@`;
             }
-            proxyString += `${proxy.ip}:${proxy.port}`;
+            proxyString += `${proxy.host}:${proxy.port}`;
             driver = driver.setProxy(webdriverProxy.manual({http: proxyString}));
         }
         driver = driver.build();

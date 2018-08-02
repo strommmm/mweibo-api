@@ -20,7 +20,7 @@ const like = async (weiboId, cookie, proxy?) => {
     };
     if (proxy) {
         const option: any = {
-            host: proxy.ip,
+            host: proxy.host,
             port: proxy.port,
         };
         if (proxy.username) {

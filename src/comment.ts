@@ -21,7 +21,7 @@ const comment = async (weiboId, cookie, comment, proxy?) => {
     };
     if (proxy) {
         const option: any = {
-            host: proxy.ip,
+            host: proxy.host,
             port: proxy.port,
         };
         if (proxy.username) {
