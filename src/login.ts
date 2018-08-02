@@ -14,7 +14,7 @@ const login = async (username: string, password: string, proxy?: any) => {
         const chromeOptions = new chrome.Options().windowSize({
             width: 1000,
             height: 600
-        });// .headless();
+        }).headless();
         driver = new webdriver.Builder()
             .forBrowser('chrome')
             .setChromeOptions(chromeOptions);
