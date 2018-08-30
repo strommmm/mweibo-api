@@ -17,7 +17,8 @@ const comment = async (weiboId, cookie, comment, proxy?) => {
         headers: {
             cookie,
             Referer: 'https://m.weibo.cn/',
-        }
+        },
+        timeout: 5000,
     };
     if (proxy) {
         const option: any = {
@@ -27,7 +28,6 @@ const comment = async (weiboId, cookie, comment, proxy?) => {
         if (proxy.username) {
             const toEncodeString = `${proxy.username}:${proxy.password}`;
             const base64Str = (new Buffer(toEncodeString)).toString('base64');
-            console.log('base64 string: ', base64Str);
             option.headers = {
                 'Proxy-Authorization': `Basic ${base64Str}`
             };
@@ -35,7 +35,6 @@ const comment = async (weiboId, cookie, comment, proxy?) => {
         opts.agent = new httpsProxyAgent(option);
     }
     const resp = await fetch('https://m.weibo.cn/api/comments/create', opts)
-    console.log('resp: ', resp);
     let result;
     if (resp.status !== 200) {
         result = await resp.text;

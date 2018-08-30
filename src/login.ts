@@ -33,14 +33,12 @@ const login = async (username: string, password: string, proxy?: any) => {
                 resolve();
             }, 5000);
         })
-        console.log('loginName Located')
         const name = await driver.findElement(By.id('loginName'));
         const psw = await driver.findElement(By.id('loginPassword'));
         const login = await driver.findElement(By.id('loginAction'));
         await name.sendKeys(username);
         await psw.sendKeys(password);
         await login.click();
-        console.log('click')
         await new Promise(resolve => {
             setTimeout(() => {
                 resolve();
@@ -83,19 +81,15 @@ const login = async (username: string, password: string, proxy?: any) => {
                 let sortedPointIdxs = _.map(_.split(ttype, ''), (t: string) => parseInt(t, 10));
                 let lastPoint;
                 for (const idx of sortedPointIdxs) {
-                    console.log('idx: ', idx - 1);
                     const point = points[idx - 1];
-                    console.log('point: ', point);
                     if (!lastPoint) {
                         const xx = point[0] - (x + width/2);
                         const yy = point[1] - (y + height/2);
-                        console.log(`x: ${xx}, y: ${yy}`);
                         actions.move({x: xx, y: yy, origin: box}).press();
                         lastPoint = point;
                     } else {
                         const xx = point[0] - lastPoint[0];
                         const yy = point[1] - lastPoint[1];
-                        console.log(`x: ${xx}, y: ${yy}`);
                         for (let n=0; n<20; n++) {
                             actions.move({duration: 5000, x: xx/20, y: yy/20, origin: 'pointer'}).pause(100);
                         }

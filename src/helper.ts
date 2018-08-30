@@ -98,7 +98,6 @@ export const getTtype = (im) => {
             lines.push(line);
         }
     }
-    console.log('lines ', lines);
     let directedLine = ''
     const usedLines = []
     for (const line of lines) {
@@ -160,7 +159,6 @@ export const getTtype = (im) => {
         llist.push(sufPoint)
     }
     const ttype = _.join(llist, '');
-    console.log('ttype:', ttype);
     return ttype;
 }
 

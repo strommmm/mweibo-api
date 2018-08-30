@@ -17,6 +17,7 @@ const like = async (weiboId, cookie, proxy?) => {
             cookie,
             Referer: 'https://m.weibo.cn/',
         },
+        timeout: 5000,
     };
     if (proxy) {
         const option: any = {
@@ -26,7 +27,6 @@ const like = async (weiboId, cookie, proxy?) => {
         if (proxy.username) {
             const toEncodeString = `${proxy.username}:${proxy.password}`;
             const base64Str = (new Buffer(toEncodeString)).toString('base64');
-            console.log('base64 string: ', base64Str);
             option.headers = {
                 'Proxy-Authorization': `Basic ${base64Str}`
             };
