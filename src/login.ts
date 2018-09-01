@@ -14,7 +14,7 @@ const login = async (username: string, password: string, proxy?: any) => {
         const chromeOptions = new chrome.Options().windowSize({
             width: 1000,
             height: 600
-        }).headless();
+        }).headless().addArguments("--no-sandbox");;
         driver = new webdriver.Builder()
             .forBrowser('chrome')
             .setChromeOptions(chromeOptions);
@@ -56,7 +56,7 @@ const login = async (username: string, password: string, proxy?: any) => {
             const imgBase64 = await driver.takeScreenshot();
             const imgBuffer = new Buffer(imgBase64, 'base64');
             const im = images(imgBuffer);
-            im.resize(im.width() / 2);
+            // im.resize(im.width() / 2);
             const cutted = images(im, x + 50, y + 140, 160, 160);
             const pl = cutted.encode('png');
             const pixels = await new Promise((resolve, reject) => {
